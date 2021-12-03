@@ -35,8 +35,8 @@ fn instruct_to_vector(inst: &str) -> Vector {
 
     let mut vector = match commd {
         "forward" => Vector {x: 1, y: 0},
-        "down" => Vector {x: 0, y: -1},
-        "up" => Vector {x: 0, y: 1},
+        "down" => Vector {x: 0, y: 1},
+        "up" => Vector {x: 0, y: -1},
         _ => unreachable!("This shouldn't happen")
     };
 
@@ -80,8 +80,7 @@ fn with_aim(instructions: &[String]) {
         }
     }
 
-    let mult = (position.x * position.y).abs();
-    println!("The multiplied output is: {}", mult);
+    println!("The multiplied output is: {}", position.x * position.y);
 }
 
 fn print_multiplied_pos(instructions: &[String]) {
@@ -91,8 +90,7 @@ fn print_multiplied_pos(instructions: &[String]) {
         let update = instruct_to_vector(&line);
         position += update;
     }
-    let mult = (position.x * position.y).abs();
-    println!("The multiplied output is: {}", mult);
+    println!("The multiplied output is: {}", position.x * position.y);
 }
 
 fn get_file(filename: &str) -> Result<Vec<String>, Box<dyn Error>> {
