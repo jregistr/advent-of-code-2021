@@ -45,9 +45,9 @@ fn main() {
 
 fn instruction_to_offset_vector(command: &str, amount: i32) -> Position {
     let mut unit_vector = match command {
-        "forward" => Position { horizontal: 1, depth: 0 },
-        "down" => Position { horizontal: 0, depth: 1 },
-        "up" => Position { horizontal: 0, depth: -1 },
+        "forward" => Position::new(1, 0),
+        "down" => Position::new(0, 1),
+        "up" => Position::new(0, -1),
         _ => unreachable!(format!("Given an unexpected command: {}", command))
     };
 
